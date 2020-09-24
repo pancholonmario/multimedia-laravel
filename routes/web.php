@@ -13,7 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
 Route::get('/','PageController@posts');
+
+//Slug me permite colocar en la URL el texto de Leer Más. Así Route::get('/blog/{post:slug}','PageController@post')
 Route::get('/blog/{post}','PageController@post')->name('post');
 
 Auth::routes();

@@ -10,16 +10,20 @@
             <div class="card mb-4">
                 <div class="card-body">
                  <!-- Vamos a colocar nuestro contenido multimedia inicio-->
-                @if($post->image)
+                 @if ($post->image && $post->iframe)
                     <img src="{{ $post->get_image }}" class="card-img-top">
-                @elseif($post->iframe)
-
-                <div class="embed-responsive embed-responsive-16by9">
-                {!! $post->iframe !!}
-
-                </div>
-                    
-                @endif
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <!-- SE COLOCA !! !! PORQUEE USAMOS UN BLADE Y SE USARA HTML -->
+                        {!! $post->iframe !!}
+                    </div>
+                    @elseif ($post->image)
+                    <img src="{{ $post->get_image }}" class="card-img-top">
+                    @elseif($post->iframe)
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <!-- SE COLOCA !! !! PORQUEE USAMOS UN BLADE Y SE USARA HTML -->
+                        {!! $post->iframe !!}
+                    </div>
+                    @endif
 
 
 
@@ -39,6 +43,8 @@
                     {{ $post->created_at->format('d M Y') }}
 
                     </p>
+
+                    
                 </div>
             </div>
 

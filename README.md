@@ -1,0 +1,1 @@
+Proyecto de Laravel con archivos multimedia e imagenes
